@@ -816,7 +816,7 @@ document.getElementById('quiz-restart').addEventListener('click', ()=>{
 
 document.getElementById('quiz-share').addEventListener('click', async ()=>{
   const score = document.getElementById('quiz-share').dataset.score;
-  const quizUrl = window.location.origin + window.location.pathname + '#quiz';
+  const quizUrl = new URL('quiz.html', window.location.href).href;
   const shareText = `I scored ${score}/${quizData.length} on the "A Very Old Man with Enormous Wings" quiz! 🪶 Try it yourself.`;
   const fallback = document.getElementById('share-fallback');
 
@@ -840,7 +840,7 @@ buildProgress();
 renderQuestion();
 
 document.getElementById('quiz-invite-share').addEventListener('click', async ()=>{
-  const quizUrl = window.location.origin + window.location.pathname + '#quiz';
+  const quizUrl = new URL('quiz.html', window.location.href).href;
   const shareData = {
     title: 'Enormous Wings Quiz',
     text: 'Take this quiz on "A Very Old Man with Enormous Wings" (Class X English, Unit 1) and test what you know!',
